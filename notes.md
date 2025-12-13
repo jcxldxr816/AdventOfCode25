@@ -2,13 +2,16 @@
 I'll use this file to keep track of my progress on Advent of Code 2025.
 
 I am going to be using Rust this year. I'll try to track my progress with the language. I'm also using a new IDE: Zed. This is my fun coding project for the time being. As part of that, I won't be using AI, because coding with AI isn't fun!
+## Progress
+2/24 stars
+- Day 1 (Part 1 & 2) Complete 
 
 # Struggling with:
 Ownership, Macros
 
 # Rust Notes
 *I'm following the Rust book. https://doc.rust-lang.org/book/*
-**Stopped at:** References and Borrowing (Ch4, Sec2)
+**Ready for:** Ch5, Using Structs
 ## Tools
 - cargo - Dependency manager & build tool
   - ```cargo new [name]``` - create a new project
@@ -107,3 +110,21 @@ Ownership can be transferred when returning values as well.
 
 References can be used to avoid repetitive ownership changes.
 ### References and Borrowing
+References are like pointers, but they will always point to a valid value of a specific type.
+- Remember: Reference: &, Dereference: *
+Variables passed by reference won't be owned, but borrowed.
+By default, refrences are immutable. Variables can only be passed as mutable references one at a time.
+You can't have a mutable reference while there is an existing immutable reference.
+#### Dangling References
+The data will not go out of scope before the reference does.
+Example: returning a reference to a variable that was created within the function.
+
+You can either have one mutable reference, or any number of immutable references at a time.
+References must always be valid.
+### The Slice Type
+A slice is a kind of reference, so it doesn't have ownership.
+Slices allow you to reference a contiguous sequence of elements in a collection.
+String Slice (&str) Example: "s = hello world"
+```let world = &s[6..11];```
+A more general slice: &[i32]
+There are plenty of slice types
