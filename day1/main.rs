@@ -19,23 +19,35 @@ fn process_input(starting_val: i32, input: Vec<&str>) -> i32 {
 
     for line in input {
         if line.len() < 2 {
-            println!("Problem line: {line}");
+            println!("\nProblem line: '{line}'");
             continue;
         }
         let (dir, amount) = line.split_at(1); //"L, 12"
-        let adj_amount: i32 = amount.parse::<i32>().unwrap() % 100;
+
+        let parsed_amount: i32 = amount.parse::<i32>().unwrap();
+        let full_rots: i32 = parsed_amount / 100; //floor
+        let adj_amount: i32 = parsed_amount % 100;
+
         if dir == "L" {
+            let past_value = value;
             value -= adj_amount;
             if value < 0 {
                 value = 100 - (0 - value);
+                if past_value != 0 {
+                    count += 1;
+                }
             }
         } else {
             value += adj_amount;
             if value > 99 {
                 value = 0 + (value - 100);
+                if value != 0 {
+                    count += 1;
+                }
             }
         }
-        println!("Value: {value}");
+
+        count += full_rots;
         if value == 0 {
             count += 1;
         }
