@@ -11,3 +11,8 @@
 - only need to consider **even length** values
 
 for each even value in range, compare the first half of string to last half.
+
+## Part Two
+- pattern-length (x) variable, starts at half of string length, decreases to 1
+
+if len % x == 0, get x chars (len / x times), compare them
