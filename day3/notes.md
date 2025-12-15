@@ -17,3 +17,9 @@ find the largest possible joltage each bank can produce
 - for first digit, pick the largest number from 0..len-1
 - if there are duplicates, favor the leftmost
 - for the second digit, pick the largest value to the right of the first
+
+## Part Two
+- keep an array of Digit objects
+- for each battery, 
+  - pick largest leftmost number, 
+  - to the right of rightmost selected digit
