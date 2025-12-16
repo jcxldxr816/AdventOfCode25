@@ -8,9 +8,14 @@ I am going to be using Rust this year. I'll try to track my progress with the la
 - Day 2 (Part 1 & 2) Complete
 - Day 3 (Part 1 & 2) Complete
 
-# Struggling with:
+# Issues
+- rust-analyzer seems to only work with cargo projects.
+- day 1 part 2 solution doesn't work for part 1 
+  - (see prev commit for working part 1)
+  - day 2 part 2 solution doesn't work for part 1
+
+## Struggling with:
 Ownership, Macros
-rust-analyzer seems to only work with cargo projects.
 
 # Rust Notes
 *I'm following the Rust book. https://doc.rust-lang.org/book/*
