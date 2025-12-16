@@ -20,6 +20,7 @@ fn process_input(lines: Vec<&str>) -> u32 {
     let mut diagram = vec![vec![false; columns]; rows];
 
     let mut total = 0;
+    let mut local_total = 0;
 
     // Finding all rolls
     for line_index in 0..rows {
@@ -32,25 +33,33 @@ fn process_input(lines: Vec<&str>) -> u32 {
         }
     }
 
-    for y in 0..rows {
-        for x in 0..columns {
-            if diagram[x][y] == true {
-                let mut count = 0;
-                // println!("Roll at {x},{y}");
-                for check_x in x.saturating_sub(1)..=cmp::min(x + 1, columns - 1) {
-                    for check_y in y.saturating_sub(1)..=cmp::min(y + 1, rows - 1) {
-                        // println!("\tChecking X: {check_x}\tChecking Y: {check_y}");
-                        if diagram[check_x][check_y] == true {
-                            count += 1;
+    let mut prev_total = 100;
+    while prev_total > 0 {
+        for y in 0..rows {
+            for x in 0..columns {
+                if diagram[x][y] == true {
+                    let mut count = 0;
+                    // println!("Roll at {x},{y}");
+                    for check_x in x.saturating_sub(1)..=cmp::min(x + 1, columns - 1) {
+                        for check_y in y.saturating_sub(1)..=cmp::min(y + 1, rows - 1) {
+                            // println!("\tChecking X: {check_x}\tChecking Y: {check_y}");
+                            if diagram[check_x][check_y] == true {
+                                count += 1;
+                            }
                         }
                     }
-                }
-                count -= 1; //subtracting the center roll
-                if count < 4 {
-                    total += 1;
+                    count -= 1; //subtracting the center roll
+                    if count < 4 {
+                        local_total += 1;
+                        diagram[x][y] = false;
+                    }
                 }
             }
         }
+        total += local_total;
+        prev_total = local_total;
+        local_total = 0;
+        // println!("local total reset.")
     }
 
     return total;

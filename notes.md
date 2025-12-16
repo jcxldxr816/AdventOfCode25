@@ -2,17 +2,22 @@
 I'll use this file to keep track of my progress on Advent of Code 2025.
 
 I am going to be using Rust this year. I'll try to track my progress with the language. I'm also using a new IDE: Zed. This is my fun coding project for the time being. As part of that, I won't be using AI, because coding with AI isn't fun!
+
 ## Progress
-6/24 stars
+8/24 stars
 - Day 1 (Part 1 & 2) Complete
 - Day 2 (Part 1 & 2) Complete
 - Day 3 (Part 1 & 2) Complete
+- Day 4 (Part 1 & 2) Complete
 
 # Issues
 - rust-analyzer seems to only work with cargo projects.
 - day 1 part 2 solution doesn't work for part 1 
   - (see prev commit for working part 1)
   - day 2 part 2 solution doesn't work for part 1
+  
+# Todo
+need to go through previous days and clean up code, follow rust practices more closely.
 
 ## Struggling with:
 Ownership, Macros
